@@ -12,7 +12,8 @@ namespace GrafGenerator.BuildNotificationTools.Interop
         private readonly bool _internalFailure;
 
         private readonly MessageQueue _mq;
-        internal MessageQueue MessageQueue
+
+        public MessageQueue MessageQueue
         {
             get
             {

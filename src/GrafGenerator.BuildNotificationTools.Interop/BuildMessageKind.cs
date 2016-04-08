@@ -8,6 +8,6 @@
         Progress = 3,
         Warning = 4,
         Error = 5,
-        End = 6
+        Finish = 6
     }
 }

@@ -36,6 +36,7 @@
       <Private>True</Private>
       <HintPath>..\packages\System.Management.Automation.dll.10.0.10586.0\lib\net40\System.Management.Automation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,7 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetNotificationChannelCommand.cs" />
+    <Compile Include="NewBuildMessageCommand.cs" />
+    <Compile Include="NewBuildConfigurationCommand.cs" />
+    <Compile Include="PushNotificationCommand.cs" />
+    <Compile Include="OpenNotificationChannelCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
