@@ -2,11 +2,17 @@
 
 namespace GrafGenerator.BuildNotificationTools.Interop
 {
+    [Serializable]
     public class BuildMessage
     {
-        public Guid BuildId { get; private set; }
-        public BuildMessageKind MessageKind { get; private set; }
-        public string Message { get; private set; }
+        public Guid BuildId { get; set; }
+        public BuildMessageKind MessageKind { get; set; }
+        public string Message { get; set; }
+
+        public BuildMessage()
+        {
+            
+        }
 
         private BuildMessage(Guid buildId, BuildMessageKind messageKind, string message)
         {

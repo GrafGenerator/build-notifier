@@ -13,6 +13,8 @@ namespace SampleWatcher
             var mq = new NotificationChannel(name).MessageQueue;
             ((XmlMessageFormatter)mq.Formatter).TargetTypes = new[] { typeof(BuildMessage) };
 
+            Console.WriteLine("Purge queue...");
+            mq.Purge();
             Console.WriteLine("Start listening build notifications...");
             while (true)
             {
