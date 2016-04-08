@@ -51,6 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GrafGenerator.BuildNotificationTools.psd1" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
