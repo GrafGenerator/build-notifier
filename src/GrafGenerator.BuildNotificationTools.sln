@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools", "GrafGenerator.BuildNotificationTools\GrafGenerator.BuildNotificationTools.csproj", "{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools.Interop", "GrafGenerator.BuildNotificationTools.Interop\GrafGenerator.BuildNotificationTools.Interop.csproj", "{9084E5A2-7517-4A22-826C-4F93FD576121}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9084E5A2-7517-4A22-826C-4F93FD576121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9084E5A2-7517-4A22-826C-4F93FD576121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9084E5A2-7517-4A22-826C-4F93FD576121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9084E5A2-7517-4A22-826C-4F93FD576121}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
