@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools", "GrafGenerator.BuildNotificationTools\GrafGenerator.BuildNotificationTools.csproj", "{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}"
 EndProject
@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{D4FB
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWatcher", "SampleWatcher\SampleWatcher.csproj", "{30500372-685F-46A4-A92F-165F4DC94B14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{428D1645-C09E-4F6F-93EB-37835ED8C838}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22} = {428D1645-C09E-4F6F-93EB-37835ED8C838}
+		{9084E5A2-7517-4A22-826C-4F93FD576121} = {428D1645-C09E-4F6F-93EB-37835ED8C838}
 		{D4FBD458-1F11-4281-9E24-5648CACF1D5F} = {A51890F3-3531-4C09-8166-AE790BEDD102}
 		{30500372-685F-46A4-A92F-165F4DC94B14} = {A51890F3-3531-4C09-8166-AE790BEDD102}
 	EndGlobalSection
