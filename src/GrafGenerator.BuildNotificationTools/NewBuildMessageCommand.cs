@@ -23,15 +23,7 @@ namespace GrafGenerator.BuildNotificationTools
             set { _configuration = value; }
         }
 
-        [Parameter(Position = 1, Mandatory = false)]
-        [Alias("M")]
-        public string Message
-        {
-            get { return _message; }
-            set { _message = value; }
-        }
-
-        [Parameter(Position = 2, Mandatory = true)]
+        [Parameter(Position = 1, Mandatory = true)]
         [ValidateNotNullOrEmpty]
         [Alias("Kind")]
         public string MessageKind
@@ -39,6 +31,16 @@ namespace GrafGenerator.BuildNotificationTools
             get { return _messageKind; }
             set { _messageKind = value; }
         }
+
+        [Parameter(Position = 2, Mandatory = false)]
+        [Alias("M")]
+        public string Message
+        {
+            get { return _message; }
+            set { _message = value; }
+        }
+
+
 
         #endregion
 

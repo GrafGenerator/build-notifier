@@ -3,7 +3,7 @@ Clear
 #=============================
 
 
-$channelName = 'reporting-builds'
+$channelName = 'build-notifications'
 
 $channel = Open-NotificationChannel $channelName
 $conf = New-BuildConfiguration
