@@ -56,7 +56,6 @@ namespace GrafGenerator.BuildNotificationTools.Interop
 
 	    public void WriteXml(XmlWriter writer)
 	    {
-
 		    writer.WriteElementString("id",_buildId.ToString());
 		    writer.WriteElementString("kind", Enum.GetName(typeof (BuildMessageKind), _messageKind));
 		    writer.WriteElementString("message", _message);
