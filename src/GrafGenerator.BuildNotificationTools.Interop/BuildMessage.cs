@@ -1,23 +1,28 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace GrafGenerator.BuildNotificationTools.Interop
 {
     [Serializable]
-    public class BuildMessage: ISerializable
+    public class BuildMessage: IXmlSerializable
     {
-	    private readonly Guid _buildId;
-	    private readonly BuildMessageKind _messageKind;
-	    private readonly string _message;
+	    private Guid _buildId;
+	    private BuildMessageKind _messageKind;
+	    private string _message;
 
 	    public Guid BuildId => _buildId;
 	    public BuildMessageKind MessageKind => _messageKind;
 	    public string Message => _message;
 
+
 	    public BuildMessage()
 	    {
 		    
 	    }
+
 
         private BuildMessage(Guid buildId, BuildMessageKind messageKind, string message)
         {
@@ -26,24 +31,35 @@ namespace GrafGenerator.BuildNotificationTools.Interop
             _message = message;
         }
 
-	    protected BuildMessage(SerializationInfo info, StreamingContext context)
-	    {
-		    _buildId = (Guid) info.GetValue("id", typeof (Guid));
-		    _messageKind = (BuildMessageKind) info.GetValue("kind", typeof (BuildMessageKind));
-		    _message = info.GetString("message");
-	    }
-
 
 		public static BuildMessage Create(Guid buildId, BuildMessageKind messageKind, string message)
         {
             return new BuildMessage(buildId, messageKind, message);
         }
 
-	    public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+	    public XmlSchema GetSchema()
 	    {
-		    info.AddValue("id", _buildId);
-			info.AddValue("kind", _messageKind);
-			info.AddValue("message", _message);
+		    return null;
+	    }
+
+	    public void ReadXml(XmlReader reader)
+	    {
+		    reader.ReadToFollowing("id");
+		    var buildIdStr = reader.ReadElementContentAsString();
+		    var messageKindStr = reader.ReadElementContentAsString();
+			var messageStr = reader.ReadElementContentAsString();
+
+			_buildId = Guid.Parse(buildIdStr);
+		    _messageKind = (BuildMessageKind) Enum.Parse(typeof (BuildMessageKind), messageKindStr);
+		    _message = messageStr;
+	    }
+
+	    public void WriteXml(XmlWriter writer)
+	    {
+
+		    writer.WriteElementString("id",_buildId.ToString());
+		    writer.WriteElementString("kind", Enum.GetName(typeof (BuildMessageKind), _messageKind));
+		    writer.WriteElementString("message", _message);
 	    }
     }
 }
