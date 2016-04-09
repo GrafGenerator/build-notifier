@@ -7,8 +7,8 @@
     <ProjectGuid>{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GrafGenerator.BuildNotificationTools</RootNamespace>
-    <AssemblyName>GrafGenerator.BuildNotificationTools</AssemblyName>
+    <RootNamespace>GrafGenerator.BuildNotificationTools.Commands</RootNamespace>
+    <AssemblyName>GrafGenerator.BuildNotificationTools.Commands</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GrafGenerator.BuildNotificationTools.psd1">
+    <None Include="GrafGenerator.BuildNotificationTools.Commands.psd1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

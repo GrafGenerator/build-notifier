@@ -2,7 +2,7 @@
 using System.Management.Automation;
 using GrafGenerator.BuildNotificationTools.Interop;
 
-namespace GrafGenerator.BuildNotificationTools
+namespace GrafGenerator.BuildNotificationTools.Commands
 {
     [Cmdlet(VerbsCommon.New, "BuildMessage")]
     public class NewBuildMessageCommand: PSCmdlet

@@ -5,7 +5,7 @@ Clear
 
 Import-Module -Name "$PSScriptRoot\Invoke-MsBuild.psm1" -DisableNameChecking
 
-$moduleName = 'GrafGenerator.BuildNotificationTools'
+$moduleName = 'GrafGenerator.BuildNotificationTools.Commands'
 $dependencyModuleName = 'GrafGenerator.BuildNotificationTools.Interop'
 $docsFolder = [Environment]::GetFolderPath('MyDocuments')
 $installFolder = "$docsFolder\WindowsPowerShell\Modules\$moduleName"

@@ -2,7 +2,7 @@
 using System.Messaging;
 using GrafGenerator.BuildNotificationTools.Interop;
 
-namespace GrafGenerator.BuildNotificationTools
+namespace GrafGenerator.BuildNotificationTools.Commands
 {
     [Cmdlet(VerbsCommon.Push, "Notification")]
     public class PushNotificationCommand: PSCmdlet
