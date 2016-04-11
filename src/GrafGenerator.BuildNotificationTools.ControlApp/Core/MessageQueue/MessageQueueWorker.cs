@@ -13,7 +13,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
 
 		public void Watch()
 		{
-			
+			// todo: start background watch process here
 		}
 	}
 }

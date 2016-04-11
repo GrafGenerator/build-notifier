@@ -76,6 +76,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\MessageQueue\MessageQueueWorker.cs" />
+    <Compile Include="Core\Model\BuildInfo.cs" />
+    <Compile Include="Core\Model\BuildInfoContainer.cs" />
     <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
