@@ -3,28 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools.Commands", "GrafGenerator.BuildNotificationTools\GrafGenerator.BuildNotificationTools.Commands.csproj", "{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools.Commands", "src\GrafGenerator.BuildNotificationTools\GrafGenerator.BuildNotificationTools.Commands.csproj", "{62E78B6A-89CA-4E8C-B22A-4BA60A7C0C22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools.Interop", "GrafGenerator.BuildNotificationTools.Interop\GrafGenerator.BuildNotificationTools.Interop.csproj", "{9084E5A2-7517-4A22-826C-4F93FD576121}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools.Interop", "src\GrafGenerator.BuildNotificationTools.Interop\GrafGenerator.BuildNotificationTools.Interop.csproj", "{9084E5A2-7517-4A22-826C-4F93FD576121}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{6EEA52D2-368C-4604-AE2C-0FFD5FB22AAF}"
 	ProjectSection(SolutionItems) = preProject
-		..\build\build-and-deploy.ps1 = ..\build\build-and-deploy.ps1
-		..\build\Invoke-MsBuild.psm1 = ..\build\Invoke-MsBuild.psm1
+		build\build-and-deploy.ps1 = build\build-and-deploy.ps1
+		build\Invoke-MsBuild.psm1 = build\Invoke-MsBuild.psm1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{A51890F3-3531-4C09-8166-AE790BEDD102}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{D4FBD458-1F11-4281-9E24-5648CACF1D5F}"
 	ProjectSection(SolutionItems) = preProject
-		..\sample\simple.ps1 = ..\sample\simple.ps1
+		sample\simple.ps1 = sample\simple.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWatcher", "SampleWatcher\SampleWatcher.csproj", "{30500372-685F-46A4-A92F-165F4DC94B14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWatcher", "src\SampleWatcher\SampleWatcher.csproj", "{30500372-685F-46A4-A92F-165F4DC94B14}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{428D1645-C09E-4F6F-93EB-37835ED8C838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools.ControlApp", "GrafGenerator.BuildNotificationTools.ControlApp\GrafGenerator.BuildNotificationTools.ControlApp.csproj", "{BCD980AC-7998-4A30-821B-2301D4BA5CB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafGenerator.BuildNotificationTools.ControlApp", "src\GrafGenerator.BuildNotificationTools.ControlApp\GrafGenerator.BuildNotificationTools.ControlApp.csproj", "{BCD980AC-7998-4A30-821B-2301D4BA5CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
