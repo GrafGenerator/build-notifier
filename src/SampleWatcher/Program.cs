@@ -26,7 +26,9 @@ namespace SampleWatcher
                     if (msg != null)
                     {
                         var message = (BuildMessage) msg.Body;
-                        Console.WriteLine("Message received: [{0}] {1} (build '{2}')", message.MessageKind,
+	                    var time = new DateTime(message.Timestamp);
+	                    Console.WriteLine("[{0}]: [{1}] {2} (build '{3}')",
+		                    $"{time.ToShortDateString()} {time.ToShortTimeString()}", message.MessageKind,
                             message.Message, message.BuildId);
                     }
                 }
