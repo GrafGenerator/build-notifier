@@ -7,6 +7,5 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 {
 	public interface IDataService
 	{
-		void GetData(Action<DataItem, Exception> callback);
 	}
 }
