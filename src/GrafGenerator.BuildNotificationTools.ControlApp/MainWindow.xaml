@@ -29,7 +29,44 @@
             <ColumnDefinition Width="139*"/>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="messagesGrid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="560" Width="548"
-                  ItemsSource="{Binding Source={StaticResource CvsMessages}}" CanUserAddRows="False" CanUserDeleteRows="False"/>
+                  ItemsSource="{Binding Source={StaticResource CvsMessages}}" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.GroupStyle>
+                <!-- Style for groups at top level. -->
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="True" Background="#FF112255" BorderBrush="#FF002255" Foreground="#000000" BorderThickness="1,1,1,5">
+                                            <Expander.Header>
+                                                <DockPanel>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=Id}" Foreground="White" Margin="5,0,0,0" Width="100"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Expander.Content>
+                                                <ItemsPresenter />
+                                            </Expander.Content>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+                <!-- Style for groups under the top level. -->
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <DockPanel Background="LightBlue">
+                                <TextBlock Text="{Binding Path=Id}" Foreground="Blue" Margin="30,0,0,0" Width="100"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+        </DataGrid>
 
     </Grid>
 </Window>
