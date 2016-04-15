@@ -1,5 +1,7 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System.Collections.ObjectModel;
+using GalaSoft.MvvmLight;
 using GrafGenerator.BuildNotificationTools.ControlApp.Model;
+using GrafGenerator.BuildNotificationTools.Interop;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 {
@@ -19,11 +21,8 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 		public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
 		private string _welcomeTitle = "Hey, build is running!";
+		private ObservableCollection<BuildMessage> _buildMessages;
 
-		/// <summary>
-		/// Gets the WelcomeTitle property.
-		/// Changes to that property's value raise the PropertyChanged event. 
-		/// </summary>
 		public string WelcomeTitle
 		{
 			get
@@ -36,30 +35,22 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 			}
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the MainViewModel class.
-		/// </summary>
+		public ObservableCollection<BuildMessage> BuildMessages
+		{
+			get { return _buildMessages; }
+			set { Set(ref _buildMessages, value); }
+		}
+
 		public MainViewModel(IBuildMessagesStorageService buildMessagesStorageService)
 		{
 			_buildMessagesStorageService = buildMessagesStorageService;
-			//_dataService.GetData(
-			//	(item, error) =>
-			//	{
-			//		if (error != null)
-			//		{
-			//			// Report error here
-			//			return;
-			//		}
 
-			//		WelcomeTitle = item.Title;
-			//	});
+			var messagesResult = _buildMessagesStorageService.GetMessages();
+
+			if (messagesResult.Success)
+			{
+				BuildMessages = new ObservableCollection<BuildMessage>(messagesResult.Value);
+			}
 		}
-
-		////public override void Cleanup()
-		////{
-		////    // Clean up if needed
-
-		////    base.Cleanup();
-		////}
 	}
 }

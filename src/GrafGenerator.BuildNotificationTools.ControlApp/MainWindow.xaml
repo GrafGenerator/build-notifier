@@ -6,16 +6,16 @@
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
         Height="608.866"
-        Width="348.525"
+        Width="797.163"
         Title="Build Notifier"
         DataContext="{Binding Main, Source={StaticResource Locator}}" ResizeMode="CanMinimize">
 
     <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Skins/MainSkin.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <CollectionViewSource x:Key="CvsMessages" Source="{Binding BuildMessages}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="Id"></PropertyGroupDescription>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
@@ -23,14 +23,8 @@
             <ColumnDefinition Width="202*"/>
             <ColumnDefinition Width="139*"/>
         </Grid.ColumnDefinitions>
-
-        <TextBlock FontSize="36"
-                   FontWeight="Bold"
-                   Foreground="Purple"
-                   Text="{Binding WelcomeTitle}"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap" Grid.ColumnSpan="2" Margin="68,242,68,225" Height="113" />
+        <DataGrid x:Name="messagesGrid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="560" Width="548"
+                  ItemsSource="{Binding Source={StaticResource CvsMessages}}" CanUserAddRows="False" CanUserDeleteRows="False"/>
 
     </Grid>
 </Window>
