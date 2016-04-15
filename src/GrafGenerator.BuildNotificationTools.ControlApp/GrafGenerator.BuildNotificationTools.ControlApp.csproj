@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GrafGenerator.BuildNotificationTools.ControlApp</RootNamespace>
     <AssemblyName>GrafGenerator.BuildNotificationTools.ControlApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,9 +78,9 @@
     </ApplicationDefinition>
     <Compile Include="Core\MessageQueue\MessageQueueWorker.cs" />
     <Compile Include="Model\BuildInfo.cs" />
-    <Compile Include="Design\DesignDataService.cs" />
-    <Compile Include="Model\DataService.cs" />
-    <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Design\DesignBuildMessagesStorageService.cs" />
+    <Compile Include="Model\BuildMessagesStorageService.cs" />
+    <Compile Include="Model\IBuildMessagesStorageService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -129,6 +130,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\GrafGenerator.FunctionalExtensions\GrafGenerator.FunctionalExtensions.csproj">
+      <Project>{7a2c727e-495b-4283-9edd-593f1d07c69d}</Project>
+      <Name>GrafGenerator.FunctionalExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GrafGenerator.BuildNotificationTools.Interop\GrafGenerator.BuildNotificationTools.Interop.csproj">
       <Project>{9084e5a2-7517-4a22-826c-4f93fd576121}</Project>
       <Name>GrafGenerator.BuildNotificationTools.Interop</Name>

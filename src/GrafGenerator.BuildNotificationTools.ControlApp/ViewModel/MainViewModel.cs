@@ -11,7 +11,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 	/// </summary>
 	public class MainViewModel : ViewModelBase
 	{
-		private readonly IDataService _dataService;
+		private readonly IBuildMessagesStorageService _buildMessagesStorageService;
 
 		/// <summary>
 		/// The <see cref="WelcomeTitle" /> property's name.
@@ -39,9 +39,9 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 		/// <summary>
 		/// Initializes a new instance of the MainViewModel class.
 		/// </summary>
-		public MainViewModel(IDataService dataService)
+		public MainViewModel(IBuildMessagesStorageService buildMessagesStorageService)
 		{
-			_dataService = dataService;
+			_buildMessagesStorageService = buildMessagesStorageService;
 			//_dataService.GetData(
 			//	(item, error) =>
 			//	{

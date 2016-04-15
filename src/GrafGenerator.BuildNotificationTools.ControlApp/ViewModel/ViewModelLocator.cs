@@ -31,11 +31,11 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 
 			if (ViewModelBase.IsInDesignModeStatic)
 			{
-				SimpleIoc.Default.Register<IDataService, Design.DesignDataService>();
+				SimpleIoc.Default.Register<IBuildMessagesStorageService, Design.DesignBuildMessagesStorageService>();
 			}
 			else
 			{
-				SimpleIoc.Default.Register<IDataService, DataService>();
+				SimpleIoc.Default.Register<IBuildMessagesStorageService, BuildMessagesStorageService>();
 			}
 
 			SimpleIoc.Default.Register<MainViewModel>();
