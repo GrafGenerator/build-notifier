@@ -11,11 +11,16 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}" ResizeMode="CanMinimize">
 
     <Window.Resources>
-        <CollectionViewSource x:Key="CvsMessages" Source="{Binding BuildMessages}">
-            <CollectionViewSource.GroupDescriptions>
-                <PropertyGroupDescription PropertyName="Id"></PropertyGroupDescription>
-            </CollectionViewSource.GroupDescriptions>
-        </CollectionViewSource>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <CollectionViewSource x:Key="CvsMessages" Source="{Binding BuildMessages}">
+                <CollectionViewSource.GroupDescriptions>
+                    <PropertyGroupDescription PropertyName="Id"></PropertyGroupDescription>
+                </CollectionViewSource.GroupDescriptions>
+            </CollectionViewSource>
+        </ResourceDictionary>
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
