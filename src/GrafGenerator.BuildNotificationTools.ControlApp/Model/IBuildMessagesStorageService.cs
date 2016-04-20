@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using GrafGenerator.BuildNotificationTools.Interop;
-using GrafGenerator.FunctionalExtensions;
+﻿using GrafGenerator.FunctionalExtensions;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 {
-	public interface IBuildMessagesStorageService
+    public interface IBuildMessagesStorageService
 	{
-		Result<IEnumerable<BuildInfo>> GetMessages();
+        BuildInfoCollection BuildMessages { get; }
 		Result AddMessage(BuildInfo message);
 	}
 }
