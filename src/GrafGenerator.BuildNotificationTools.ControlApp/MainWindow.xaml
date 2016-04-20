@@ -43,9 +43,11 @@
                                     <ControlTemplate TargetType="{x:Type GroupItem}">
                                         <Expander IsExpanded="True" Background="#FF112255" BorderBrush="#FF002255" Foreground="#000000" BorderThickness="1,1,1,5">
                                             <Expander.Header>
-                                                <DockPanel>
-                                                    <TextBlock FontWeight="Bold" Text="{Binding Path=Id}" Foreground="White" Margin="5,0,0,0" Width="100"/>
-                                                </DockPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock FontWeight="Bold" Text="Id: " Foreground="White" Margin="5,0,0,0" Width="16"/>
+                                                    <TextBlock Text="{Binding Path=Name}" Foreground="White" Margin="5,0,0,0" Width="241"/>
+                                                    <TextBlock Text="{Binding Items.Count, StringFormat=Messages count: {0}}" Foreground="White" Margin="5,0,0,0" Width="241"/>
+                                                </StackPanel>
                                             </Expander.Header>
                                             <Expander.Content>
                                                 <ItemsPresenter />
