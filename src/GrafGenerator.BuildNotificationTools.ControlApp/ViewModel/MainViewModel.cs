@@ -21,7 +21,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 		public const string WelcomeTitlePropertyName = "WelcomeTitle";
 
 		private string _welcomeTitle = "Hey, build is running!";
-		private ObservableCollection<BuildMessage> _buildMessages;
+		private ObservableCollection<BuildInfo> _buildMessages;
 
 		public string WelcomeTitle
 		{
@@ -35,7 +35,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 			}
 		}
 
-		public ObservableCollection<BuildMessage> BuildMessages
+		public ObservableCollection<BuildInfo> BuildMessages
 		{
 			get { return _buildMessages; }
 			set { Set(ref _buildMessages, value); }
@@ -49,7 +49,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 
 			if (messagesResult.Success)
 			{
-				BuildMessages = new ObservableCollection<BuildMessage>(messagesResult.Value);
+				BuildMessages = new ObservableCollection<BuildInfo>(messagesResult.Value);
 			}
 		}
 	}

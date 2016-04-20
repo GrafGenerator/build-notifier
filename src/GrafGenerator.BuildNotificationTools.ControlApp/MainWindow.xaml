@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GrafGenerator.BuildNotificationTools.ControlApp.Converter"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
         Height="608.866"
@@ -15,9 +16,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <local:GuidToStringConverter x:Key="guidConverter" />
             <CollectionViewSource x:Key="CvsMessages" Source="{Binding BuildMessages}">
                 <CollectionViewSource.GroupDescriptions>
-                    <PropertyGroupDescription PropertyName="Id"></PropertyGroupDescription>
+                    <PropertyGroupDescription PropertyName="Id" Converter="{StaticResource guidConverter}"></PropertyGroupDescription>
                 </CollectionViewSource.GroupDescriptions>
             </CollectionViewSource>
         </ResourceDictionary>
@@ -54,16 +56,6 @@
                             </Setter>
                         </Style>
                     </GroupStyle.ContainerStyle>
-                </GroupStyle>
-                <!-- Style for groups under the top level. -->
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                        <DataTemplate>
-                            <DockPanel Background="LightBlue">
-                                <TextBlock Text="{Binding Path=Id}" Foreground="Blue" Margin="30,0,0,0" Width="100"/>
-                            </DockPanel>
-                        </DataTemplate>
-                    </GroupStyle.HeaderTemplate>
                 </GroupStyle>
             </DataGrid.GroupStyle>
         </DataGrid>

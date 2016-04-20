@@ -6,7 +6,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 {
 	public interface IBuildMessagesStorageService
 	{
-		Result<IEnumerable<BuildMessage>> GetMessages();
-		Result AddMessage(BuildMessage message);
+		Result<IEnumerable<BuildInfo>> GetMessages();
+		Result AddMessage(BuildInfo message);
 	}
 }
