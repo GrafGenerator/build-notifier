@@ -16,10 +16,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <local:GuidToStringConverter x:Key="guidConverter" />
+            <local:GuidToStringConverter x:Key="GuidConverter" />
             <CollectionViewSource x:Key="CvsMessages" Source="{Binding BuildMessages}">
                 <CollectionViewSource.GroupDescriptions>
-                    <PropertyGroupDescription PropertyName="Id" Converter="{StaticResource guidConverter}"></PropertyGroupDescription>
+                    <PropertyGroupDescription PropertyName="Id" Converter="{StaticResource GuidConverter}"></PropertyGroupDescription>
                 </CollectionViewSource.GroupDescriptions>
             </CollectionViewSource>
         </ResourceDictionary>
