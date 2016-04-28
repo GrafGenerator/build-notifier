@@ -1,4 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
+using GrafGenerator.BuildNotificationTools.ControlApp.Core.Builders;
+using GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue;
 using GrafGenerator.BuildNotificationTools.ControlApp.Model;
 using GrafGenerator.BuildNotificationTools.Interop;
 using GalaSoft.MvvmLight.Command;
@@ -14,28 +16,15 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 	/// </summary>
 	public class MainViewModel : ViewModelBase
 	{
+		public RelayCommand AddMessageCommand { get; private set; }
+
+
+
 		private readonly IBuildMessagesStorageService _buildMessagesStorageService;
-
-        public RelayCommand AddMessageCommand { get; private set; }
-
-		public const string WelcomeTitlePropertyName = "WelcomeTitle";
-
-		private string _welcomeTitle = "Hey, build is running!";
 		private BuildInfoCollection _buildMessages;
+		private BuildMessageListenerService _buildMessageListenerService;
 
-        private Guid[] _buildGuids;
 
-		public string WelcomeTitle
-		{
-			get
-			{
-				return _welcomeTitle;
-			}
-			set
-			{
-				Set(ref _welcomeTitle, value);
-			}
-		}
 
 		public BuildInfoCollection BuildMessages
 		{
@@ -45,30 +34,12 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 
 		public MainViewModel(IBuildMessagesStorageService buildMessagesStorageService)
 		{
+			var channel = ChannelBuilder.Create().UseAppConfig().Build();
+
 			_buildMessagesStorageService = buildMessagesStorageService;
+			_buildMessageListenerService = new BuildMessageListenerService(channel, _buildMessagesStorageService);
 
-            BuildMessages = _buildMessagesStorageService.BuildMessages;
-
-            _buildGuids = new[]
-            {
-                Guid.NewGuid(),
-                Guid.NewGuid(),
-                Guid.NewGuid(),
-                Guid.NewGuid(),
-                Guid.NewGuid()
-            };
-
-            AddMessageCommand = new RelayCommand(AddNewMessage, () => true);
+			BuildMessages = _buildMessagesStorageService.BuildMessages;
 		}
-
-
-        private void AddNewMessage()
-        {
-            var r = new Random();
-
-            var buildGuid = _buildGuids[r.Next(_buildGuids.Length)];
-            var buildMessageKind = (BuildMessageKind)r.Next(8);
-            _buildMessagesStorageService.AddMessage(BuildInfo.Create(buildGuid, buildMessageKind, "New message", DateTime.Now.Ticks));
-        }
 	}
 }

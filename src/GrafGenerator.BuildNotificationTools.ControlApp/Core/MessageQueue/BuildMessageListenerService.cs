@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GrafGenerator.BuildNotificationTools.ControlApp.Model;
+using GrafGenerator.BuildNotificationTools.Interop;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
 {
 	public class BuildMessageListenerService
 	{
-		public BuildMessageListenerService()
+		private readonly NotificationChannel _channel;
+		private readonly IBuildMessagesStorageService _storage;
+
+		public BuildMessageListenerService(NotificationChannel channel, IBuildMessagesStorageService storage)
 		{
-			// todo: init with channel, connect with main view model, start worker
+			_channel = channel;
+			_storage = storage;
 		}
 	}
 }
