@@ -45,11 +45,15 @@ namespace GrafGenerator.BuildNotificationTools.Interop
                 }
             }
 
-            if (_mq == null)
-            {
-                _internalFailure = true;
-            }
-        }
+	        if (_mq == null)
+	        {
+		        _internalFailure = true;
+	        }
+	        else
+	        {
+		        ((XmlMessageFormatter) _mq.Formatter).TargetTypes = new[] {typeof(BuildMessage)};
+	        }
+		}
 
         private void EnsureIntialized()
         {

@@ -38,6 +38,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
 			try
 			{
 				var mq = _channel.MessageQueue;
+				mq.Purge();
 
 				while(true)
 				{

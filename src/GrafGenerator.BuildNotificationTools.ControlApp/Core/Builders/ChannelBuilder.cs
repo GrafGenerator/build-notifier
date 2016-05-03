@@ -57,13 +57,28 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.Builders
 	{
 		public static INotificationChannelBuilder Create(SettingsSource settingsSource)
 		{
-			throw new System.NotImplementedException();
+			switch (settingsSource)
+			{
+				case SettingsSource.AppConfig:
+					return new AppConfigNotificationChannelBuilder();
+
+				default:
+					return new DummyNotificationChannelBuilder();
+			}
 		}
 	}
 
 	internal interface INotificationChannelBuilder
 	{
 		NotificationChannel Build(ChannelBuilder channelBuilder);
+	}
+
+	class DummyNotificationChannelBuilder : INotificationChannelBuilder
+	{
+		public NotificationChannel Build(ChannelBuilder channelBuilder)
+		{
+			return null;
+		}
 	}
 
 	class AppConfigNotificationChannelBuilder : INotificationChannelBuilder

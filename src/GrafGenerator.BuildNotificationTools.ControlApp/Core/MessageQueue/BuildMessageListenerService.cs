@@ -1,4 +1,5 @@
-﻿using GrafGenerator.BuildNotificationTools.ControlApp.Model;
+﻿using System.Threading;
+using GrafGenerator.BuildNotificationTools.ControlApp.Model;
 using GrafGenerator.BuildNotificationTools.Interop;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
@@ -7,6 +8,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
 	{
 		private readonly NotificationChannel _channel;
 		private readonly IBuildMessagesStorageService _storage;
+		private SynchronizationContext _callerContext;
 
 		public BuildMessageListenerService(NotificationChannel channel, IBuildMessagesStorageService storage)
 		{
@@ -16,6 +18,9 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
 
 		public void Listen()
 		{
+			// ensure we store caller thread context (expect it to be UI thread)
+			_callerContext = SynchronizationContext.Current;
+
 			var worker = new MessageQueueWorker(_channel);
 			worker.MessagesReceived += MqWorderOnMessagesReceived;
 
@@ -26,7 +31,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
 		{
 			foreach (var message in messagesReceivedArgs.Messages)
 			{
-				_storage.AddMessage(BuildInfo.Create(message));
+				_callerContext.Send(_ => _storage.AddMessage(BuildInfo.Create(message)), null);
 			}
 		}
 	}
