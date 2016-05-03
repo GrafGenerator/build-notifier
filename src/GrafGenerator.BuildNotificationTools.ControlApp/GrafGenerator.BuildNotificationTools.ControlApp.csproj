@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -82,6 +83,7 @@
     <Compile Include="Core\Builders\LogBuilder.cs" />
     <Compile Include="Core\MessageQueue\BuildMessageListenerService.cs" />
     <Compile Include="Core\MessageQueue\MessageQueueWorker.cs" />
+    <Compile Include="Core\MessageQueue\MessagesReceivedArgs.cs" />
     <Compile Include="Model\BuildInfo.cs" />
     <Compile Include="Design\DesignBuildMessagesStorageService.cs" />
     <Compile Include="Model\BuildInfoCollection.cs" />

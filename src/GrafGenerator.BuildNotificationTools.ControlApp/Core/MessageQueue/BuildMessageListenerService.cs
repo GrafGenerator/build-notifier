@@ -13,5 +13,21 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue
 			_channel = channel;
 			_storage = storage;
 		}
+
+		public void Listen()
+		{
+			var worker = new MessageQueueWorker(_channel);
+			worker.MessagesReceived += MqWorderOnMessagesReceived;
+
+			worker.Listen();
+		}
+
+		private void MqWorderOnMessagesReceived(object sender, MessagesReceivedArgs messagesReceivedArgs)
+		{
+			foreach (var message in messagesReceivedArgs.Messages)
+			{
+				_storage.AddMessage(BuildInfo.Create(message));
+			}
+		}
 	}
 }

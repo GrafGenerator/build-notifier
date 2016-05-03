@@ -8,11 +8,8 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 	public class BuildInfo: INotifyPropertyChanged
 	{
         private Guid _id;
-        private BuildMessageKind _messageKind;
-        private string _message;
-        private long _timestamp;
 
-        public Guid Id
+		public Guid Id
         {
             get { return _id; }
             set
@@ -25,16 +22,18 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
             }
         }
 
-        public BuildMessageKind MessageKind => _messageKind;
-        public string Message => _message;
-        public long Timestamp => _timestamp;
+        public BuildMessageKind MessageKind { get; }
 
-        private BuildInfo(Guid id, BuildMessageKind messageKind, string message, long timestamp)
+		public string Message { get; }
+
+		public long Timestamp { get; }
+
+		private BuildInfo(Guid id, BuildMessageKind messageKind, string message, long timestamp)
 		{
 			Id = id;
-            _messageKind = messageKind;
-            _message = message;
-            _timestamp = timestamp;
+            MessageKind = messageKind;
+            Message = message;
+            Timestamp = timestamp;
 		}
 
 
@@ -43,15 +42,16 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
             return new BuildInfo(id, messageKind, message, timestamp);
         }
 
+		public static BuildInfo Create(BuildMessage message)
+		{
+			return new BuildInfo(message.BuildId, message.MessageKind, message.Message, message.Timestamp);
+		}
 
-        public event PropertyChangedEventHandler PropertyChanged;
+		public event PropertyChangedEventHandler PropertyChanged;
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+	        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
+	}
 }

@@ -2,9 +2,7 @@
 using GrafGenerator.BuildNotificationTools.ControlApp.Core.Builders;
 using GrafGenerator.BuildNotificationTools.ControlApp.Core.MessageQueue;
 using GrafGenerator.BuildNotificationTools.ControlApp.Model;
-using GrafGenerator.BuildNotificationTools.Interop;
 using GalaSoft.MvvmLight.Command;
-using System;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 {
@@ -40,6 +38,8 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 			_buildMessageListenerService = new BuildMessageListenerService(channel, _buildMessagesStorageService);
 
 			BuildMessages = _buildMessagesStorageService.BuildMessages;
+
+			_buildMessageListenerService.Listen();
 		}
 	}
 }
