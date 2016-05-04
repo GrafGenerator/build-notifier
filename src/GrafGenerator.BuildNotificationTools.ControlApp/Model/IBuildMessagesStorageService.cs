@@ -1,4 +1,5 @@
-﻿using GrafGenerator.FunctionalExtensions;
+﻿using System;
+using GrafGenerator.FunctionalExtensions;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 {
@@ -6,5 +7,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 	{
         BuildInfoCollection BuildMessages { get; }
 		Result AddMessage(BuildInfo message);
+
+	    event EventHandler<BuildInfoReceivedArgs> BuildInfoReceived;
 	}
 }

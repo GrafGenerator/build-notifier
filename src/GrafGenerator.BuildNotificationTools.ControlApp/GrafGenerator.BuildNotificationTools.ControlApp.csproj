@@ -84,11 +84,14 @@
     <Compile Include="Core\MessageQueue\BuildMessageListenerService.cs" />
     <Compile Include="Core\MessageQueue\MessageQueueWorker.cs" />
     <Compile Include="Core\MessageQueue\MessagesReceivedArgs.cs" />
+    <Compile Include="Core\TrayIcon\TrayMessagesBroker.cs" />
+    <Compile Include="Core\TrayIcon\TrayNotifierService.cs" />
     <Compile Include="Model\BuildInfo.cs" />
     <Compile Include="Design\DesignBuildMessagesStorageService.cs" />
     <Compile Include="Model\BuildInfoCollection.cs" />
     <Compile Include="Model\BuildInfoReceivedArgs.cs" />
     <Compile Include="Model\BuildMessagesStorageService.cs" />
+    <Compile Include="Model\BuildMessagesStorageServiceBase.cs" />
     <Compile Include="Model\IBuildMessagesStorageService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
