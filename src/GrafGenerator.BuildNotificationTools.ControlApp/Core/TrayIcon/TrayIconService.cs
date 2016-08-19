@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using GrafGenerator.BuildNotificationTools.ControlApp.Core.Abstraction;
-using GrafGenerator.BuildNotificationTools.ControlApp.Model;
 using GrafGenerator.BuildNotificationTools.ControlApp.Properties;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.TrayIcon
@@ -26,7 +25,13 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.TrayIcon
             foreach (var info in messagesReceivedArgs.Messages)
             {
                 var command = _trayCommandGenerator.Create(info);
+                DispatchCommand(command);
             }
+        }
+
+        private void DispatchCommand(ITrayCommand command)
+        {
+            throw new NotImplementedException();
         }
 
         public void Start()
@@ -37,7 +42,6 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.TrayIcon
                 Text = Resources.TrayIconService_AppName,
                 Visible = true
             };
-
         }
     }
 }

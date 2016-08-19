@@ -1,4 +1,5 @@
 ﻿using GrafGenerator.BuildNotificationTools.ControlApp.Model;
+using GrafGenerator.BuildNotificationTools.ControlApp.Properties;
 
 namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.TrayIcon
 {
@@ -14,8 +15,9 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.TrayIcon
 	    public void Start()
 	    {
 	        var messageAggregator = new BuildInfoAggregator(_storage);
-	        var trayIcon = new TrayIconService<BuildInfo>(messageAggregator);
-	        var traySettings = new TrayIconSettings();
+	        var traySettings = new TrayIconSettings {Icon = Resources.app};
+
+            var trayIcon = new TrayIconService<BuildInfo>(traySettings, messageAggregator, new BuildInfoTrayCommandGenerator());
 
 	        trayIcon.Start();
 	    }

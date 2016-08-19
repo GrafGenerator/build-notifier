@@ -1,6 +1,6 @@
 ﻿namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.Abstraction
 {
-    public interface ITrayCommandGenerator<TMessage>
+    public interface ITrayCommandGenerator<in TMessage>
     {
         ITrayCommand Create(TMessage message);
     }
