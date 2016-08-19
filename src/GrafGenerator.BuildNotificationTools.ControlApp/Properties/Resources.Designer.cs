@@ -59,5 +59,23 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string BuildInfo_Start {
+            get {
+                return ResourceManager.GetString("BuildInfo_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build Notifier v0.1.0.
+        /// </summary>
+        internal static string TrayIconService_AppName {
+            get {
+                return ResourceManager.GetString("TrayIconService_AppName", resourceCulture);
+            }
+        }
     }
 }
