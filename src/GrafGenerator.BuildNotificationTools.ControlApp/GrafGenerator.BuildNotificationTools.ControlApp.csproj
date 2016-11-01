@@ -81,6 +81,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converter\GuidToStringConverter.cs" />
+    <Compile Include="Core\TrayIcon\BalloonInfoDto.cs" />
     <Compile Include="Core\TrayIcon\BalloonTrayCommand.cs" />
     <Compile Include="Core\Abstraction\ITrayMessageSupplier.cs" />
     <Compile Include="Core\Abstraction\IMessagesReceivedArgs.cs" />

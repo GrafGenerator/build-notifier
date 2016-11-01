@@ -7,7 +7,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Core.TrayIcon
     {
         public ITrayCommand Create(BuildInfo message)
         {
-            return new BalloonTrayCommand(message.Message, message.Id.ToString());
+            return new BalloonTrayCommand(message.Message, message.Id.ToString(), message.MessageKind);
         }
     }
 }

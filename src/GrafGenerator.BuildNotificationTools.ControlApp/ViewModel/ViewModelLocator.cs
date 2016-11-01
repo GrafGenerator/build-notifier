@@ -35,7 +35,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.ViewModel
 			}
 			else
 			{
-				SimpleIoc.Default.Register<IBuildMessagesStorageService, BuildMessagesStorageServiceBase>();
+				SimpleIoc.Default.Register<IBuildMessagesStorageService, BuildMessagesStorageService>();
 			}
 
 			SimpleIoc.Default.Register<MainViewModel>();

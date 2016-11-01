@@ -30,7 +30,7 @@
             <ColumnDefinition Width="202*"/>
             <ColumnDefinition Width="139*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="messagesGrid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="560" Width="548"
+        <DataGrid x:Name="messagesGrid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="560" Width="635"
                   ItemsSource="{Binding Source={StaticResource CvsMessages}}" CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.GroupStyle>
                 <!-- Style for groups at top level. -->
@@ -61,7 +61,6 @@
                 </GroupStyle>
             </DataGrid.GroupStyle>
         </DataGrid>
-        <Button x:Name="button" Content="Add message" Command="{Binding AddMessageCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="182,10,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

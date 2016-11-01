@@ -9,7 +9,7 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
         public BuildInfoCollection BuildMessages { get; }
 		public event EventHandler<BuildInfoReceivedArgs> BuildInfoReceived;
 
-		protected BuildMessagesStorageServiceBase()
+	    protected BuildMessagesStorageServiceBase()
         {
             BuildMessages = new BuildInfoCollection();
 
