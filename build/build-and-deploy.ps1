@@ -15,7 +15,7 @@ $manifestPath = "$installFolder\$moduleName.psd1"
 
 $rootFolder = "$PSScriptRoot\.."
 $artifactsFolder = "$rootFolder\artifacts"
-$solutionPath = "$rootFolder\src\GrafGenerator.BuildNotificationTools.sln"
+$solutionPath = "$rootFolder\GrafGenerator.BuildNotificationTools.sln"
 
 
 
