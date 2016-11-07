@@ -26,9 +26,9 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 
 		public string Message { get; }
 
-		public long Timestamp { get; }
+		public DateTime Timestamp { get; }
 
-		private BuildInfo(Guid id, BuildMessageKind messageKind, string message, long timestamp)
+		private BuildInfo(Guid id, BuildMessageKind messageKind, string message, DateTime timestamp)
 		{
 			Id = id;
             MessageKind = messageKind;
@@ -37,14 +37,14 @@ namespace GrafGenerator.BuildNotificationTools.ControlApp.Model
 		}
 
 
-        public static BuildInfo Create(Guid id, BuildMessageKind messageKind, string message, long timestamp)
+        public static BuildInfo Create(Guid id, BuildMessageKind messageKind, string message, DateTime timestamp)
         {
             return new BuildInfo(id, messageKind, message, timestamp);
         }
 
 		public static BuildInfo Create(BuildMessage message)
 		{
-			return new BuildInfo(message.BuildId, message.MessageKind, message.Message, message.Timestamp);
+			return new BuildInfo(message.BuildId, message.MessageKind, message.Message, message.OccurredOn);
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

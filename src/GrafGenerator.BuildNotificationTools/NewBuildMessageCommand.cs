@@ -58,7 +58,13 @@ namespace GrafGenerator.BuildNotificationTools.Commands
 
         protected override void ProcessRecord()
         {
-            var buildMessage = BuildMessage.Create(_configuration.Id, _messageKindEnum, _message, DateTime.Now.Ticks);
+            var buildMessage = new BuildMessage()
+            {
+                BuildId = _configuration.Id,
+                MessageKind = _messageKindEnum,
+                Message = _message,
+                OccurredOn = DateTime.Now
+            };
 
             WriteObject(buildMessage);
         }

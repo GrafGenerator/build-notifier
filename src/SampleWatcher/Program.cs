@@ -26,7 +26,7 @@ namespace SampleWatcher
                     if (msg != null)
                     {
                         var message = (BuildMessage) msg.Body;
-	                    var time = new DateTime(message.Timestamp);
+	                    var time = message.OccurredOn;
 	                    Console.WriteLine("[{0}]: [{1}] {2} (build '{3}')",
 		                    $"{time.ToShortDateString()} {time.ToShortTimeString()}", message.MessageKind,
                             message.Message, message.BuildId);
