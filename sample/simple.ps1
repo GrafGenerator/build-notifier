@@ -21,5 +21,5 @@ foreach($message in $messages){
     Write-Host "Sending message '$($message.Message)'"
     Push-Notification $channel $message
     
-    Start-Sleep -s 2
+    Start-Sleep -s 5
 }
